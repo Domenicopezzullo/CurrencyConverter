@@ -4,12 +4,12 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/charmbracelet/huh"
 	"io"
 	"log"
 	"net/http"
 	"os"
 	"strconv"
-	"github.com/charmbracelet/huh"
 )
 
 var (
@@ -76,7 +76,7 @@ func main() {
 
 	apiKey, ok := os.LookupEnv("CURRENCYAPIKEY")
 	if !ok {
-		log.Fatal("APIKEY is not set")
+		log.Fatal("CURRENCYAPIKEY is not set")
 		os.Exit(1)
 	}
 
@@ -110,4 +110,3 @@ func main() {
 
 	fmt.Printf("%s %s is worth around %s %s\n", printAmount(parsedAmount), fromCurrency, printAmount(hardCodedAmount), toCurrency)
 }
-
